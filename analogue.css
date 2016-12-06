@@ -1,0 +1,16 @@
+#current-time {
+    display: block;
+    font-weight: bold;
+    text-align: center;
+    width: 200px;
+    padding: 10px;
+}
+ 
+#clockCanvas {
+    padding: 10px;
+    border: 5px solid blue;
+  }
+body{
+	height: 400px;
+	background-color:  ;
+}
