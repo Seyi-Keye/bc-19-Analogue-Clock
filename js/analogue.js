@@ -1,43 +1,38 @@
-
-    
-    // Get timezone data from api and sorts by the zone names
- //  	$.get("https://api.timezonedb.com/v2/list-time-zone?key=4E8GH2Z6KVYV&format=json",function(data){
-	//     zones = data.zones.sort(function(a, b){
-	//         return a['zoneName'].toLowerCase() > b['zoneName'].toLowerCase();
-	// });
-
- //    var options = '';
- //    zones.forEach(function(item){
- //        selected = '';
- //        if(item['zoneName'].toLowerCase() === 'africa/lagos' ){
- //             selected = 'selected="selected"';
- //        }
- //        options += '<option value="'+(item.gmtOffset/3600) + '" ' + selected + '>' + item.zoneName + '</option>';
- //    })
- //    document.getElementById('tzSelect').innerHTML = options
- //    });
 document.addEventListener('DOMContentLoaded', startTimer);
+    // Get timezone data from api and sorts by the zone names
+$.get("https://api.timezonedb.com/v2/list-time-zone?key=D1LUAPW05SMD&format=json",function(data){
+	zones = data.zones.sort(function(a,b){
+				return a['zoneName'].toLowerCase() > b['zoneName'].toLowerCase();
+			})
+
+	var options = '';
+	zones.forEach(function(item){
+		selected = '';
+		if(item['zoneName'].toLowerCase() == 'africa/lagos'){
+			selected = 'selected';
+		}
+	options += '<option value=' +(item.gmtOffset/3600) + ' ' + selected + '>' + item.zoneName + '</option>';
+	document.getElementById('tzSelect').innerHTML = options;
+	});
+});
 
 function startTimer(){
 	setInterval(updateTime, 1000);
-    updateTime();
+    // updateTime();
 } 
 
 
 function updateTime() {
 const dateData = new Date();
-
-const hr   = dateData.getHours();
+const offset_value = document.getElementById('tzSelect').value-1
+const hr = dateData.getHours() + offset_value;
 const mint = dateData.getMinutes();
 const secs = dateData.getSeconds();
 const zone = dateData.getTimezoneOffset()/(-60);
 
-    // var offset_value = document.getElementById('tzSelect').value-1
-    	// var hour = now.getHours() + offset_value;
-	    // // Specify and assign each date method to be used
-// 
-	    //--- Digital clock setup ----//
-const timeString = formatHour(hr) + ":" + padZero(mint) + ":" + padZero(secs) + ". " + amPM(hr)  + "  GMT: +" +String(zone) ;
+  //--- Digital clock setup ----//
+const timeString = formatHour(hr) + " : " + padZero(mint) + " : " + padZero(secs) + " " + amPM(hr)  + "  GMT: +" +String(zone) ;
+// console.log("time",timeString);
 document.querySelector("#current-time").innerHTML = timeString;
 // }
 
