@@ -11,6 +11,7 @@ $.get("https://api.timezonedb.com/v2/list-time-zone?key=D1LUAPW05SMD&format=json
 		if(item['zoneName'].toLowerCase() == 'africa/lagos'){
 			selected = 'selected';
 		}
+
 	options += '<option value=' +(item.gmtOffset/3600) + ' ' + selected + '>' + item.zoneName + '</option>';
 	document.getElementById('tzSelect').innerHTML = options;
 	});
@@ -18,7 +19,7 @@ $.get("https://api.timezonedb.com/v2/list-time-zone?key=D1LUAPW05SMD&format=json
 
 function startTimer(){
 	setInterval(updateTime, 1000);
-    // updateTime();
+    // updateTime
 } 
 
 
@@ -27,7 +28,7 @@ function updateTime() {
 	const offset_value = document.getElementById('tzSelect').value-1;
 
 	let hr, mint;
-	//checking for float offset value
+	// checking for float offset value
 	if (offset_value%1 !== 0){
 		let offset_vale = Math.floor(offset_value)
 		const offset_valueMint= (offset_value-Math.floor(offset_vale))*60;
@@ -45,11 +46,14 @@ function updateTime() {
 	//seconds and zone are not affected by offset in float
 	const secs = dateData.getSeconds();
 	const zone = (offset_value + 1);
+	const location = '';
 
 
 	  //--- Digital clock setup ----//
-	const timeString = formatHour(hr) + ":" + padZero(mint) + ":" + padZero(secs) + " " + amPM(hr)  + " GMT: " +String(zone) ;
+	const timeString = formatHour(hr) + ":" + padZero(mint) + ":" + padZero(secs) + " " + amPM(hr)  + " GMT: " +String(zone);
 	document.querySelector("#current-time").innerHTML = timeString;
+	
+	
 
 
 	// Pad in the initial zero to the minute and second display for 0 to 9 results
@@ -105,8 +109,8 @@ function updateTime() {
 	}
 
 			context.clearRect(0, 0, canvas.width, canvas.height);
-			drawArm(hr / 12, 10, 0.50, '#000000'); // Hour
-			drawArm(mint / 60,  4, 0.75, '#000000'); // Minute
-			drawArm(secs / 60,  2, 1.00, 'blue'); // Second
+			drawArm(hr / 12, 10, 0.45, '#000000'); // Hour
+			drawArm(mint / 60,  4, 0.65, '#000000'); // Minute
+			drawArm(secs / 60,  2, 0.90, 'blue'); // Second
 }
 	
