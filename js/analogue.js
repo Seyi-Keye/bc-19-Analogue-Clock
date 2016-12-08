@@ -25,11 +25,27 @@ function startTimer(){
 function updateTime() {
 	const dateData = new Date();
 	const offset_value = document.getElementById('tzSelect').value-1;
-	const hr = dateData.getHours() + offset_value;
-	const mint = dateData.getMinutes();
+
+	let hr, mint;
+	if (offset_value%1 !== 0){
+	let offset_vale = Math.floor(offset_value)
+	console.log(offset_vale);
+	const offset_valueMint= (offset_value-Math.floor(offset_vale))*60;
+	hr = dateData.getHours() + offset_vale;
+	mint = dateData.getMinutes() + offset_valueMint;
+		if(mint>=60){
+			mint = mint%60;
+			hr +=1 
+		}
+	}
+	else{
+	hr = dateData.getHours() + offset_value;
+	 mint = dateData.getMinutes();
+	} 
+
 	const secs = dateData.getSeconds();
-	const zone = offset_value + 1;
-	// const zone = dateData.getTimezoneOffset()/(-60);
+	const zone = (offset_value + 1);
+
 
 	  //--- Digital clock setup ----//
 	const timeString = formatHour(hr) + " : " + padZero(mint) + " : " + padZero(secs) + " " + amPM(hr)  + "  GMT: " +String(zone) ;
@@ -66,16 +82,6 @@ function updateTime() {
 	//Setting a radius to fill the canvas size specified
 	const clockRadius = 200;
 	
-	//Draw the clock face
-	// context.drawImage(clock.png, 200, 200);
-	// var clockImage = new Image();
-	// var clockImageLoaded = false;
-	// clockImage.onload = function(){
- //    clockImageLoaded = true;
-	// }
-	// clockImage.src = 'images/Clock_Face_2_by_AGF81.png';
-
-
 	//Ensuring a centralized clock on the canvas
 	const clockX = canvas.width / 2;
 	const clockY = canvas.height / 2;

@@ -10,32 +10,24 @@
 	    <script type="text/javascript" src="bootstrap.min.js"></script>
 	    <link rel="stylesheet" href="analogue.css"/>
 </head>
- 
 <body>
 	<div class = "container">
 		<div class="row">
-			<div class="col-md-6">
-			<!-- Timezone select option -->
-			<select class="form-control" onchange="updateTime()" id="tzSelect"> Select Location and Timezone
-
-	        </select>
-	        </div>
-	    </div>
-		<div class="row">
-			<div class = "col-md-6" id="current-time">
-            	12:00:00 AM
-			</div>
-
 			<div class="col-md-6">
 				<canvas id="clockCanvas" width="400" height="400">
 				    If you can see this message, your browser does not support canvas 
 				    and needs an update. Sorry. :(
 				</canvas>
 			</div>
-		</div>
-		
+			<div class="col-md-6">
+			<!-- Timezone select option -->
+				<select class="form-control" onchange="updateTime()" id="tzSelect">
+		        </select>
+		        <div id="current-time">
+	            	12:00:00 AM
+				</div>
+	        </div>
+	    </div>
 	</div>
-        
-	 
 </body>
 </html>

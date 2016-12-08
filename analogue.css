@@ -1,23 +1,33 @@
 #current-time {
-    display: inline;
+    display: block;
     font-weight: bold;
     text-align: center;
-    width: 200px;
-    padding-top: 50px;
+    padding-top: 100px;
     font-family: 'Chicle', cursive;
-    font-size: 70px;
-    color: white;
+    font-size: 80px;
+    color: black;
 }
  
 #clockCanvas {
-    padding: 10px;
+    padding-top: 50px;
     border: 5px dotted  black;
     background: url('images/clock.png') no-repeat;
+    /*background: url('bcy.png') no-repeat;*/
+    /*background: url('blank-face.jpg') no-repeat;*/
+
     background-position: center;
-    background-size: 520px;
+    background-size: 490px;
+    font font-weight: italic;
   }
 body{
-	background: url('GUAaScC.jpg') no-repeat;
+	background: url('imag1.jpg') no-repeat;
     background-size: cover;
     image-rendering:auto;
+    position: center;
 }
+.container{
+    padding: 100px;
+}
+/*#tzSelect{
+    padding-top: 100px;
+}*/
