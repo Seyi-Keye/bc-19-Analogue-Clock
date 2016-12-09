@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8"> 
+	<title>Analogue Clock</title>
+		<script src="https://code.jquery.com/jquery-2.2.4.min.js" type="text/javascript"></script>
+		<script src="js/analogue.js"></script>
+		<link rel="stylesheet" href="css/bootstrap.min.css">
+		<link href="https://fonts.googleapis.com/css?family=Orbitron' rel='stylesheet' rel="stylesheet">
+	    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+	    <link rel="stylesheet" href="css/analogue.css"/>
+</head>
+<body>
+	<div class = "container">
+		<div class="row">
+			<div class="col-md-6">
+				<canvas id="clockCanvas" width="400" height="400">
+				    If you can see this message, your browser does not support canvas 
+				    and needs an update. Sorry. :(
+				</canvas>
+			</div>
+			<div class="col-md-6">
+			<!-- Timezone select option -->
+				<select class="form-control" onchange="updateTime()" id="tzSelect">
+		        </select>
+		        <div id="current-time">
+		        	<article>
+		        		<p>12:00:00 AM</p>
+		        	</article>
+	            	
+				</div>
+	        </div>
+	    </div>
+	</div>
+</body>
+</html>
