@@ -22,7 +22,6 @@ function startTimer(){
 // updateTime
 } 
 
-
 function updateTime() {
 	const dateData = new Date();
 	const offset_value = document.getElementById('tzSelect').value-1;
@@ -47,7 +46,6 @@ function updateTime() {
 	const secs = dateData.getSeconds();
 	const zone = (offset_value + 1);
 	const location = '';
-
 
 //--- Digital clock setup ----//
 	const timeString = formatHour(hr) + ":" + padZero(mint) + ":" + padZero(secs) + " " + amPM(hr)  + " GMT: " +String(zone);
@@ -88,7 +86,6 @@ function updateTime() {
 	const clockY = canvas.height / 2;
 		     
 	Math.TAU = 2 * Math.PI;
-	console.log(Math.PI);
 				
 	function drawArm(progressRate, armThickness, armLength, armColor) {
 	    var armRadians = (Math.TAU * progressRate) - (Math.TAU/4);
