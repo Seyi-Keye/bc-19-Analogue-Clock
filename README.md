@@ -8,12 +8,18 @@ Built using HTML5,HTML5 Canvas, CSS and Javascript.
 * Time change according to the selected time zone.
 
 # Usage
-* Load the clock page.
-* Select your time zone.
-* Display time at current location
+* Load the clock page via the link below.
+* Shows default time as the Greenwich Meridian
+* Loads Api content depending on the network speed
+* Displays your time and timezone
+* Select your a time zone of choice
+* Displays time at current location
 
 # Contributions
 * Fork the repository and clone locally.
 * Commit your changes.
 * Push to a new branch.
 * Raise a pull request.
+
+Follow this [link](https://seyikeye.github.io/bc-19-Analogue-Clock/) to view the Analogue Clock
+
